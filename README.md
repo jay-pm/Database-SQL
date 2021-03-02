@@ -1,6 +1,11 @@
 
 # SQL
 
+    1. Selecting columns
+    2. Filtering rows
+    3. Aggregate functions
+    4. Sorting and grouping
+
 *SQL*, which stands for Structured Query Language, is a language for interacting with data stored in something called a relational database.
 
 Relational database are a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company or purchases made, but not both.
@@ -23,3 +28,46 @@ In this query, SELECT and FROM are called keywords. In SQL, keywords are not cas
 
 It's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names.
 It's also good practice to include a semicolon at the end of your query. This tells SQL where the end of your query is!
+
+**SELECTing multiple columns**
+
+In the real world, we often want to select multiple columns. Luckily, SQL makes this really easy. To select multiple columns from a table, simply separate the column names with commas!
+
+    SELECT name, birthdate
+    FROM people;
+ 
+**SELECTing all columns**
+
+    SELECT *
+    FROM people;
+    
+**Limiting query result**
+If we only want to return a certain number of results, we can use the LIMIT keyword to limit the number of rows returned:
+
+    SELECT *
+    FROM people
+    LIMIT 10;
+    
+**SELECTing DISTINCT values**
+
+    SELECT DISTINCT language
+    FROM films;
+
+**COUNTing number of rows**
+
+If you want to count the number of employees in your employees table, the COUNT statement lets us do this by returning the number of rows in one or more columns.
+For example, this code gives the number of rows in the people table:
+
+    SELECT COUNT(*)
+    FROM people;
+ 
+ Below query gives count of non missing values in a single column.
+ 
+    SELECT COUNT(birthdate)
+    FROM people;
+    
+It's also common to combine COUNT with DISTINCT to count the number of distinct values in a column.
+For example, this query counts the number of distinct birth dates contained in the people table:
+
+    SELECT COUNT(DISTINCT birthdate)
+    FROM people;
