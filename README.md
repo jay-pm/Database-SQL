@@ -42,6 +42,7 @@ In the real world, we often want to select multiple columns. Luckily, SQL makes 
     FROM people;
     
 **Limiting query result**
+
 If we only want to return a certain number of results, we can use the LIMIT keyword to limit the number of rows returned:
 
     SELECT *
