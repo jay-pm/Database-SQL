@@ -1,5 +1,5 @@
 
-# SQL
+## SQL
 
     1. Selecting columns
     2. Filtering rows
@@ -13,6 +13,8 @@ Relational database are a collection of tables. A table is just a set of rows an
 Each row, or record, of a table contains information about a single entity. For example, in a table representing employees, each row represents a single person. Each column, or field, of a table contains a single attribute for all rows in the table.
 
 A query is a request for data from a database table (or combination of tables). 
+
+### 1. Selecting columns
 
 **SELECTing single columns**
 
@@ -72,3 +74,39 @@ For example, this query counts the number of distinct birth dates contained in t
 
     SELECT COUNT(DISTINCT birthdate)
     FROM people;
+
+###  2. Filtering
+
+In SQL, the WHERE keyword allows us to filter based on both text and numeric values in a table.
+    Note: WHERE clause always comes after the FROM statement.
+    
+The following code returns all films with the title 'Metropolis':
+
+    SELECT title
+    FROM films
+    WHERE title = 'Metropolis';
+
+We can combine WHERE multiple conditions using AND or OR operator.
+We need to specify the column name separately for every AND and OR condition, so "WHERE release_year > 2000 AND < 2010 would be invalid:
+Below query displays all details for Spanish language films released after 2000, but before 2010.
+
+    select *
+    from films
+    where language = 'Spanish'
+    and release_year > 2000
+    and release_year < 2010
+
+Below is OR query.
+
+    SELECT title
+    FROM films
+    WHERE release_year = 1994
+    OR release_year = 2000;
+
+Below query is a combination of AND and OR and will get the title and release year of films released in the 90s which were in French or Spanish and which took in more than $2M gross.
+
+    SELECT title, release_year
+    FROM films
+    WHERE (release_year >= 1990 AND release_year < 2000)
+    AND (language = 'French' OR language = 'Spanish')
+    AND gross > 2000000
