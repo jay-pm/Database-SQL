@@ -8,9 +8,11 @@
 
 *SQL*, which stands for Structured Query Language, is a language for interacting with data stored in something called a relational database.
 
-Relational database are a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company or purchases made, but not both.
+Relational database are a collection of tables.  
+A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company or purchases made, but not both.
 
-Each row, or record, of a table contains information about a single entity. For example, in a table representing employees, each row represents a single person. Each column, or field, of a table contains a single attribute for all rows in the table.
+Each row, or record, of a table contains information about a single entity.  
+For example, in a table representing employees, each row represents a single person. Each column, or field, of a table contains a single attribute for all rows in the table.
 
 A query is a request for data from a database table (or combination of tables). 
 
@@ -28,7 +30,7 @@ In this query, SELECT and FROM are called keywords. In SQL, keywords are not cas
     select name
     from people;*
 
-It's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names.
+It's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names.  
 It's also good practice to include a semicolon at the end of your query. This tells SQL where the end of your query is!
 
 **SELECTing multiple columns**
@@ -58,7 +60,7 @@ If we only want to return a certain number of results, we can use the LIMIT keyw
 
 **COUNTing number of rows**
 
-If you want to count the number of employees in your employees table, the COUNT statement lets us do this by returning the number of rows in one or more columns.
+If you want to count the number of employees in your employees table, the COUNT statement lets us do this by returning the number of rows in one or more columns.  
 For example, this code gives the number of rows in the people table:
 
     SELECT COUNT(*)
@@ -77,8 +79,8 @@ For example, this query counts the number of distinct birth dates contained in t
 
 ###  2. Filtering
 
-In SQL, the WHERE keyword allows us to filter based on both text and numeric values in a table.
-    Note: WHERE clause always comes after the FROM statement.
+In SQL, the WHERE keyword allows us to filter based on both text and numeric values in a table.  
+Note: WHERE clause always comes after the FROM statement.
     
 The following code returns all films with the title 'Metropolis':
 
@@ -86,8 +88,8 @@ The following code returns all films with the title 'Metropolis':
     FROM films
     WHERE title = 'Metropolis';
 
-We can combine WHERE multiple conditions using AND or OR operator.
-We need to specify the column name separately for every AND and OR condition, so "WHERE release_year > 2000 AND < 2010 would be invalid:
+We can combine WHERE multiple conditions using AND or OR operator.  
+We need to specify the column name separately for every AND and OR condition, so "WHERE release_year > 2000 AND < 2010 would be invalid.  
 Below query displays all details for Spanish language films released after 2000, but before 2010.
 
     select *
