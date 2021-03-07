@@ -110,3 +110,11 @@ Below query is a combination of AND and OR and will get the title and release ye
     WHERE (release_year >= 1990 AND release_year < 2000)
     AND (language = 'French' OR language = 'Spanish')
     AND gross > 2000000
+
+In SQL the BETWEEN keyword provides a useful shorthand for filtering values within a specified range.  
+BETWEEN is inclusive, meaning the beginning and end values are included in the results!
+
+    SELECT title
+    FROM films
+    WHERE release_year
+    BETWEEN 1994 AND 2000;
