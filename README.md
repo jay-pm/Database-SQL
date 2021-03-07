@@ -79,7 +79,7 @@ For example, this query counts the number of distinct birth dates contained in t
 
 ###  2. Filtering
 
-In SQL, the WHERE keyword allows us to filter based on both text and numeric values in a table.  
+In SQL, the **WHERE** keyword allows us to filter based on both text and numeric values in a table.  
 Note: WHERE clause always comes after the FROM statement.
     
 The following code returns all films with the title 'Metropolis':
@@ -88,7 +88,7 @@ The following code returns all films with the title 'Metropolis':
     FROM films
     WHERE title = 'Metropolis';
 
-We can combine WHERE multiple conditions using AND or OR operator.  
+We can combine WHERE multiple conditions using **AND** or **OR** operator.  
 We need to specify the column name separately for every AND and OR condition, so "WHERE release_year > 2000 AND < 2010 would be invalid.  
 Below query displays all details for Spanish language films released after 2000, but before 2010.
 
@@ -113,7 +113,7 @@ Below query is a combination of AND and OR and will get the title and release ye
     AND (language = 'French' OR language = 'Spanish')
     AND gross > 2000000
 
-In SQL the BETWEEN keyword provides a useful shorthand for filtering values within a specified range.  
+In SQL the **BETWEEN** keyword provides a useful shorthand for filtering values within a specified range.  
 BETWEEN is inclusive, meaning the beginning and end values are included in the results!
 
     SELECT title
@@ -121,10 +121,14 @@ BETWEEN is inclusive, meaning the beginning and end values are included in the r
     WHERE release_year
     BETWEEN 1994 AND 2000;
     
-One more example:  
+One more example with AND, OR, BETWEEN:
 
     SELECT title, release_year
     FROM films
     WHERE release_year BETWEEN 1990 AND 2000
     AND budget > 100000000
     AND (language = 'Spanish' OR language = 'French')
+
+**WHERE IN*
+
+**LIKE, NOT LIKE**
