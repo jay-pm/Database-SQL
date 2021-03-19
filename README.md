@@ -14,7 +14,8 @@ A table is just a set of rows and columns, like a spreadsheet, which represents 
 Each row, or record, of a table contains information about a single entity.  
 For example, in a table representing employees, each row represents a single person. Each column, or field, of a table contains a single attribute for all rows in the table.
 
-A query is a request for data from a database table (or combination of tables). 
+A query is a request for data from a database table (or combination of tables).   
+For adding comment in SQL, use --
 
 ### 1. Selecting columns
 
@@ -190,5 +191,47 @@ Examples:
         FROM people
         WHERE name NOT LIKE 'A%'    
         
-### 3.Aggregate functions:
+### 3. Aggregate functions:  
+Often, we want to perform some calculation on the data in a database. SQL provides a few functions, called aggregate functions.  
+Example: AVG, SUM, MIN, MAX  
 
+Below will fetch average duration for films from films table
+
+    SELECT AVG(duration)
+    FROM films
+
+Aggregate functions can be combined with the WHERE clause to gain further insights from your data.  
+Example:
+Get the amount grossed by the best performing film between 2000 and 2012, inclusive.
+
+    SELECT MAX(gross)
+    FROM films
+    WHERE release_year >= 2000 AND release_year <=2012 
+    
+In addition to using aggregate functions, we can perform basic arithmetic with symbols like +, -, *, and /.
+
+    SELECT(4+5) -- will result in 9
+SQL assumes that if you divide an integer by an integer, you want to get an integer back. So be careful when dividing!  
+    
+    SELECT(4/3) -- will result in 1
+
+If you want more precision when dividing, you can add decimal places to your numbers. For example,
+    
+    SELECT(4.0/3.0) //result in 1.333333..
+
+**Aliasing**
+When you have two columns with same name, This will be confusing.  
+To avoid situations like this, SQL allows us to do something called aliasing. Aliasing simply means we assign a temporary name to something. To alias, we use the AS keyword.
+
+    SELECT MAX(budget), MAX(duration) -- here two columns will be creeated with name MAX
+    FROM films;
+
+in the above example we could use aliases to make the result clearer:
+
+    SELECT MAX(budget) AS max_budget,
+    MAX(duration) AS max_duration
+    FROM films;
+Example: Get the number of decades the films table covers. Alias the result as number_of_decades
+
+    SELECT (MAX(release_year) - MIN(release_year))/10 AS number_of_decades
+    FROM films
