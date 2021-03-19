@@ -219,7 +219,7 @@ If you want more precision when dividing, you can add decimal places to your num
     
     SELECT(4.0/3.0) //result in 1.333333..
 
-**Aliasing**
+**Aliasing**  
 When you have two columns with same name, This will be confusing.  
 To avoid situations like this, SQL allows us to do something called aliasing. Aliasing simply means we assign a temporary name to something. To alias, we use the AS keyword.
 
