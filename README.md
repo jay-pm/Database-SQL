@@ -130,5 +130,38 @@ One more example with AND, OR, BETWEEN:
     AND (language = 'Spanish' OR language = 'French')
 
 **WHERE IN*
+When number of conditions increases, using where clause might get unwieldy. Here comes IN operator.
+Check below example with WHERE and WHERE IN
+
+With WHERE:  
+
+    SELECT name
+    FROM kids
+    WHERE age = 2
+    OR age = 4
+    OR age = 6
+    OR age = 8
+    OR age = 10;
+    
+With WHERE IN:  
+    
+    SELECT name
+    FROM kids
+    WHERE age IN (2, 4, 6, 8, 10);
+    
+**IS NULL, IS NOT NULL**
+
+In SQL, NULL represents a missing or unknown value. You can check for NULL values using the expression IS NULL. For example, to count the number of missing birth dates in the people table:  
+
+    SELECT COUNT(*)
+    FROM people
+    WHERE birthdate IS NULL;
+    
+to find out not NULL values we can use IS NOT NULL.  
+
+    SELECT name
+    FROM people
+    WHERE birthdate IS NOT NULL;
+
 
 **LIKE, NOT LIKE**
