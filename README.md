@@ -129,7 +129,7 @@ One more example with AND, OR, BETWEEN:
     AND budget > 100000000
     AND (language = 'Spanish' OR language = 'French')
 
-**WHERE IN*
+**WHERE IN**  
 When number of conditions increases, using where clause might get unwieldy. Here comes IN operator.
 Check below example with WHERE and WHERE IN
 
