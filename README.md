@@ -1,10 +1,10 @@
 
 ## SQL
 
-    1. Selecting columns
-    2. Filtering rows
-    3. Aggregate functions
-    4. Sorting and grouping
+###1. Selecting columns
+###2. Filtering rows
+###3. Aggregate functions
+###4. Sorting and grouping
 
 *SQL*, which stands for Structured Query Language, is a language for interacting with data stored in something called a relational database.
 
