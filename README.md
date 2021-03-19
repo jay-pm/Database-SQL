@@ -165,3 +165,30 @@ to find out not NULL values we can use IS NOT NULL.
 
 
 **LIKE, NOT LIKE**
+
+In SQL, the LIKE operator can be used in a WHERE clause to search for a pattern in a column. To accomplish this, we use something called a wildcard as a placeholder for some other values. There are two wildcards you can use with LIKE:
+
+- The % wildcard will match zero, one, or many characters in text.
+- The _ wildcard will match a single character.  
+You can also use the *NOT LIKE* operator to find records that don't match the pattern you specify.
+
+Examples:
+1. Below will display all names which begin with 'B'. 
+
+        SELECT name
+        FROM people
+        WHERE name LIKE 'B%'
+
+2. Below will display people whose names have 'r' as the second letter.
+
+        SELECT name
+        FROM people
+        WHERE name LIKE '_r%'
+3. Below will display names of people whose names don't start with A
+
+        SELECT name
+        FROM people
+        WHERE name NOT LIKE 'A%'    
+        
+### 3.Aggregate functions:
+
