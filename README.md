@@ -235,3 +235,36 @@ Example: Get the number of decades the films table covers. Alias the result as n
 
     SELECT (MAX(release_year) - MIN(release_year))/10 AS number_of_decades
     FROM films
+    
+### 4. Sorting and grouping
+
+In SQL, the **ORDER BY** keyword is used to sort results in ascending or descending order according to the values of one or more columns.  
+By default ORDER BY will sort in ascending order. If you want to sort the results in descending order, you can use the DESC keyword. For example,
+
+    SELECT title
+    FROM films
+    ORDER BY release_year DESC;
+gives you the titles of films sorted by release year, from newest to oldest.
+
+few more example:  
+1. Get the title of films released in 2000 or 2012, in the order they were released.
+
+        SELECT title
+        FROM films
+        WHERE release_year IN (2000, 2012)
+        ORDER BY release_year;
+    
+2. Get all details for all films except those released in 2015 and order them by duration.
+
+        SELECT *
+        FROM films
+        WHERE release_year <> 2015
+        ORDER BY duration;
+    
+3. Get the title and gross earnings for movies which begin with the letter 'M' and order the results alphabetically.
+
+        SELECT title, gross
+        FROM films
+        WHERE title LIKE 'M%'
+        ORDER BY title;
+        
