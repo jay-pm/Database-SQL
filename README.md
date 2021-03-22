@@ -267,4 +267,20 @@ few more example:
         FROM films
         WHERE title LIKE 'M%'
         ORDER BY title;
-        
+
+*Make sure to always put the ORDER BY clause at the end of your query. You can't sort values that you haven't calculated yet!*
+
+**GROUP BY**
+
+In SQL, GROUP BY allows you to group a result by one or more columns. Commonly, GROUP BY is used with aggregate functions like COUNT() or MAX(). GROUP BY always goes after the FROM clause.
+
+    SELECT sex, count(*)
+    FROM employees
+    GROUP BY sex;
+    
+Example: 
+Get the release year and average duration of all films, grouped by release year.
+
+    SELECT release_year, AVG(duration), count(*)
+    FROM films
+    GROUP BY release_year;    
