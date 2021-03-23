@@ -284,3 +284,54 @@ Get the release year and average duration of all films, grouped by release year.
     SELECT release_year, AVG(duration), count(*)
     FROM films
     GROUP BY release_year;    
+
+**HAVING**  
+In SQL, aggregate functions can't be used in WHERE clauses. For example, the following query is invalid:
+
+    SELECT release_year
+    FROM films
+    GROUP BY release_year
+    WHERE COUNT(title) > 10;
+That's where the HAVING clause comes in. For example,
+
+    SELECT release_year
+    FROM films
+    GROUP BY release_year
+    HAVING COUNT(title) > 10;
+shows only those years in which more than 10 films were released.
+
+one more example:
+In how many different years were more than 200 movies released?
+
+    SELECT release_year, count(title)
+    FROM films
+    GROUP BY release_year
+    HAVING COUNT(title) > 200;
+    
+That's the end of basic SQL.
+
+Here are some codes using all of above.
+
+*write a query that returns the average budget and average gross earnings for films in each year after 1990, if the average budget is greater than $60 million.*
+
+    SELECT release_year, AVG(budget) AS avg_budget, AVG(gross) AS avg_gross
+    FROM films
+    WHERE release_year > 1990
+    GROUP BY release_year
+    HAVING AVG(budget) > 60000000
+    ORDER BY avg_gross DESC;
+    
+*Get the country, average budget, and average gross take of countries that have made more than 10 films. Order the result by country name, and limit the number of results displayed to 5. Alias the averages as avg_budget and avg_gross respectively.*
+
+    -- select country, average budget, and average gross
+    SELECT country, AVG(budget) AS avg_budget, AVG(gross) as avg_gross
+    -- from the films table
+    FROM films
+    -- group by country 
+    GROUP BY country
+    -- where the country has more than 10 titles
+    HAVING COUNT(title) > 10
+    -- order by country
+    ORDER BY country
+    -- limit to only show 5 results
+    LIMIT 5;
